@@ -1,45 +1,60 @@
-# Aluno: Bruno Olimpio dos Santos
-# e-mail: belbrunosantos@gmail.com
+# -*- coding: utf-8 -*-
+
+u"""
+Quebrando a banca.
+
+Recebe um número e a quantidade de digitos a ser retirada.
+Retorna o maior inteiro possível.
+
+Aluno: Bruno Olimpio dos Santos.
+e-mail: belbrunosantos@gmail.com
+"""
+
 
 def maximo(saldo):
-    maior  = saldo[0]
+    u"""Encontra o maior dígito."""
+    maior = saldo[0]
     indice = 0
     for i in range(len(saldo)):
         if saldo[i] > maior:
-            maior=saldo[i]
-            indice=i
+            maior = saldo[i]
+            indice = i
         elif saldo[i] < maior:
             continue
     maiores.append(saldo.pop(indice))
     indices.append(indice)
 
+
 def bubblesort(z):
+    u"""Ordenação."""
     for i in range(len(z)-1):
-        if z[i]>z[i+1]:
-            z[i],z[i+1]=z[i+1],z[i]
+        if z[i] > z[i+1]:
+            z[i], z[i+1] = z[i+1], z[i]
             for i in range(len(z)-1):
-                if z[i]>z[i+1]:
-                    z[i],z[i+1]=z[i+1],z[i]
+                if z[i] > z[i+1]:
+                    z[i], z[i+1] = z[i+1], z[i]
                     for i in range(len(z)-1):
-                        if z[i]>z[i+1]:
-                            z[i],z[i+1]=z[i+1],z[i]
+                        if z[i] > z[i+1]:
+                            z[i], z[i+1] = z[i+1], z[i]
+
 
 RESULTADOS = []
 
 while True:
     try:
         AB = input("A, B: ")
-        A,B = AB.split(' ')
+        A, B = AB.split(' ')
         saldo = list(input('Saldo: '))
         deixar = int(A) - int(B)
-        permuta = [(saldo[i:j]) for i in range(len(saldo)+1)
-                                   for j in range(len(saldo)+1)
-                                   if len(saldo[i:j])==deixar]
+        permuta = [(saldo[i:j])
+                    for i in range(len(saldo)+1)
+                    for j in range(len(saldo) + 1)
+                    if len(saldo[i:j]) == deixar]
         bubblesort(permuta)
         possivel = ''
         for p in permuta[-1]:
-            possivel+=p
-        possivel=int(possivel)
+            possivel += p
+        possivel = int(possivel)
 
         if saldo == saldo[::-1]:
             saida = ''
@@ -55,7 +70,7 @@ while True:
 
         else:
             saldo_backup = saldo[:]
-            maiores, indices, resultado = [],[],[]
+            maiores, indices, resultado = [], [], []
             saida = ''
 
             for i in range(int(A) - int(B)):
