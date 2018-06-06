@@ -6,6 +6,7 @@ Juvenal Não Tem o Que Fazer.
 Aluno: Bruno Olimpio dos Santos.
 e-mail: belbrunosantos@gmail.com
 """
+import time
 
 
 def maximo(lista):
@@ -33,9 +34,10 @@ def recursiva(n):
         recursiva(3*n+1)
 
 
+begin = time.time()
 resultados = []
 rodadas = 0
-for i in range(900, 1000):
+for i in range(1, 100000):
     # n=int(input())
     n = i
     recursiva(n)
@@ -46,3 +48,6 @@ for i in range(900, 1000):
 # print(resultados)
 # print(len(resultados))
 print(maximo(resultados))
+finish = time.time()
+total_time = finish-begin
+print(total_time)
