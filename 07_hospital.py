@@ -1,27 +1,40 @@
-# Ordena em função da gravidade
+# -*- coding: utf-8 -*-
+
+u"""
+Hospital Cura Se Puder Pagar.
+
+Ordena lista de espera em função de multiplos fatores.
+
+Aluno: Bruno Olimpio dos Santos.
+e-mail: belbrunosantos@gmail.com
+"""
+
+
 def gravidade(lista):
-    for j in range(1,len(lista)):
+    u"""Ordena em função da gravidade."""
+    for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
-        while i>=0 and int(lista[i][2]) < int(chave[2]):
+        while i >= 0 and int(lista[i][2]) < int(chave[2]):
             lista[i+1] = lista[i]
             i -= 1
         lista[i+1] = chave
 
-# Desempate em ordem alfabetica
+
 def alfabetica(lista):
-    for j in range(1,len(lista)):
+    """Desempate em ordem alfabetica."""
+    for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
         if int(lista[i][2]) == int(chave[2]):
-            while i>=0 and lista[i][0][0]>chave[0][0]:
+            while i >= 0 and lista[i][0][0] > chave[0][0]:
                 lista[i+1] = lista[i]
                 i -= 1
             lista[i+1] = chave
 
 
 N = int(input())
-premium, diamante, ouro, prata, bronze, resto = [],[],[],[],[],[]
+premium, diamante, ouro, prata, bronze, resto = [], [], [], [], [], []
 saida = []
 
 for paciente in range(N):

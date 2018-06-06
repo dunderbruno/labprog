@@ -1,8 +1,15 @@
-"""Docstring de abertura."""
+# -*- coding: utf-8 -*-
+
+u"""
+Arquivos.
+
+Aluno: Bruno Olimpio dos Santos.
+e-mail: belbrunosantos@gmail.com
+"""
 
 
 def InsertionSort(lista):
-    """Minha Docstring."""
+    u"""Ordenação."""
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1

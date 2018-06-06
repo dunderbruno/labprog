@@ -1,12 +1,28 @@
+# -*- coding: utf-8 -*-
+
+u"""
+Lobo Mau.
+
+Aluno: Bruno Olimpio dos Santos.
+e-mail: belbrunosantos@gmail.com
+"""
+
+
 class pin:
-    def __init__(self,who,x,y):
-        self.who   = who
-        self.x     = x
-        self.y     = y
+    """Representa cada coordenada no mapa."""
+
+    def __init__(self, who, x, y):
+        """Construtor."""
+        self.who = who
+        self.x = x
+        self.y = y
+
     def __repr__(self):
         return self.who
-    def __eq__(self,i):
+
+    def __eq__(self, i):
         return self.who == i
+
 
 fazenda = ['.###.#####..',
            '#.kk#...#v#.',
@@ -22,11 +38,11 @@ altura = 9
 largura = 12
 
 # CRIA NOVA LISTA COM CARACTERES EM FORMATO DE OBJETOS
-mapa =[]
+mapa = []
 for x in range(altura):
     mapa.append([])
     for y in range(largura):
-        mapa[-1].append(pin(fazenda[x][y],x,y))
+        mapa[-1].append(pin(fazenda[x][y], x, y))
 
 for j in mapa:
     print(j)
@@ -39,7 +55,7 @@ for j in mapa:
 #        if (mapa[i][j] == ('.')) or (mapa[i][j] == ('k')) or (mapa[i][j] == ('v')):
 #            hor[-1].append(mapa[i][j])
 
-#VARREDURA HORIZONTAL
+# VARREDURA HORIZONTAL
 # hor = []
 # buscar = ['.','k','v']
 # for i in range(len(mapa)):
