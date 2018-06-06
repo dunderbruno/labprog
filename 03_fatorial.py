@@ -1,10 +1,20 @@
-# Aluno: Bruno Olimpio dos Santos
-# e-mail: belbrunosantos@gmail.com
+# -*- coding: utf-8 -*-
+
+u"""
+Descobre a menor soma de fatoriais que formam um número.
+
+Aluno: Bruno Olimpio dos Santos.
+e-mail: belbrunosantos@gmail.com
+"""
+
 
 def fatorial(n):
+    u"""Calcula fatorial de um número."""
     return 1 if n < 2 else n*fatorial(n-1)
 
+
 def maior(entrada):
+    """Define o primeiro fatorial menor que o valor de entrada."""
     primeiro = 1
     while fatorial(primeiro) < entrada:
         primeiro += 1
@@ -17,14 +27,12 @@ def maior(entrada):
 
     return(primeiro)
 
-# entrada = int(input('N: '))
+
 entrada = int(input())
 fatoriais = 0
 
 while entrada > 0:
     entrada = entrada - fatorial(maior(entrada))
-    fatoriais+=1
+    fatoriais += 1
 
 print(fatoriais)
-
-74293
