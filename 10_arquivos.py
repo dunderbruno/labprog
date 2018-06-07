@@ -3,20 +3,25 @@
 u"""
 Arquivos.
 
+Quantidade mínima possível de pastas
+de tamanho B para armazenar N arquivos
+
 Aluno: Bruno Olimpio dos Santos.
 e-mail: belbrunosantos@gmail.com
 """
 
 
-def InsertionSort(lista):
-    u"""Ordenação."""
-    for j in range(1, len(lista)):
-        chave = lista[j]
-        i = j-1
-        while i >= 0 and lista[i] > chave:
-            lista[i+1] = lista[i]
-            i -= 1
-        lista[i+1] = chave
+def pasta(lista, tamanho_maximo):
+    """Varre a lista e forma uma pasta."""
+    soma = 0
+    numeros = []
+    for i in range(len(lista)):
+        if i > 0:
+            if soma + lista[i] <= B and len(numeros) < 2:
+                soma = soma + lista[i]
+                lista[i] = 0
+    print(numeros)
+    print(soma)
 
 
 N, B = input().split(' ')
@@ -24,6 +29,11 @@ N = int(N)
 B = int(B)
 arquivos = input().split(' ')
 arquivos = [int(i) for i in arquivos]
-# a=[int(input()) for i in range(3)]
-# 5 4
-# 4 3 1 2 2
+arquivos.sort(reverse=True)
+print(arquivos)
+pasta(arquivos, B)
+print(arquivos)
+pasta(arquivos, B)
+print(arquivos)
+pasta(arquivos, B)
+print(arquivos)
