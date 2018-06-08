@@ -49,7 +49,7 @@ arquivos = [int(i) for i in arquivos]
 reverse(arquivos)
 pastas = 0
 
-print('Contando arquivos de tamanho = B')
+# Contando arquivos de tamanho = B
 for i in range(len(arquivos)):
     if arquivos[i] == B:
         ultimo = i
@@ -58,20 +58,18 @@ for i in range(len(arquivos)):
         break
 for i in range(ultimo, -1, -1):
     arquivos.pop(i)
-print(pastas)
 
-print('Contando duplas x+y=B')
+# Contando duplas x + y = B
 for i in range((N//2) + 1):
     if dupla(arquivos):
         pastas += 1
-print(pastas)
 
-print('Contando duplas x+y<B')
+# Contando duplas x + y < B
 for i in range(len(arquivos)):
     if cabe(arquivos):
         pastas += 1
-print(pastas)
 
-print('Contando sobras')
+# Contando excedentes
 pastas += len(arquivos)
+
 print(pastas)
