@@ -11,6 +11,17 @@ e-mail: belbrunosantos@gmail.com
 """
 
 
+def reverse(lista):
+    """Insertion Sort - REVERSE."""
+    for j in range(1, len(lista)):
+        chave = lista[j]
+        i = j-1
+        while i >= 0 and lista[i] < chave:
+            lista[i+1] = lista[i]
+            i -= 1
+        lista[i+1] = chave
+
+
 def dupla(lista):
     """Encontra dois numeros que somam B."""
     for i in range(len(lista)):
@@ -34,8 +45,8 @@ N, B = input().split(' ')
 N, B = int(N), int(B)
 arquivos = input().split(' ')
 arquivos = [int(i) for i in arquivos]
-arquivos.sort(reverse=True)
-
+# arquivos.sort(reverse=True)
+reverse(arquivos)
 pastas = 0
 
 print('Contando arquivos de tamanho = B')
