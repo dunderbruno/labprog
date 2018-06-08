@@ -32,22 +32,23 @@ def recursiva(n):
         # print('impar')
         rodadas += 1
         recursiva(3*n+1)
+    return rodadas
 
 
-begin = time.time()
-resultados = []
 rodadas = 0
-for i in range(1, 100000):
-    # n=int(input())
-    n = i
-    recursiva(n)
-    # print('variavel rodadas: ',rodadas)
-    resultados.append(rodadas)
-    rodadas = 0
+# print(recursiva(10))
 
-# print(resultados)
-# print(len(resultados))
-print(maximo(resultados))
-finish = time.time()
-total_time = finish-begin
-print(total_time)
+T = int(input())
+casos = []
+for i in range(T):
+    casos.append(input().split(' '))
+
+
+for x in casos:
+    maior = 0
+    for y in range(int(x[0]), int(x[1])):
+        atual = recursiva(y)
+        if atual > maior:
+            maior = atual
+        rodadas = 0
+    print(maior)
