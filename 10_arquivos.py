@@ -25,3 +25,13 @@ while True:
         arquivos.pop(0)
     else:
         break
+
+
+while len(arquivos) > 1:
+    for i in range(len(arquivos)):
+        if arquivos[0]+arquivos[i] == B:
+            print('pasta ', arquivos[0], arquivos[i])
+            arquivos.pop(i)
+            arquivos.pop(0)
+        if len(arquivos) <= 1:
+            break
