@@ -19,21 +19,16 @@ arquivos.sort(reverse=True)
 
 pastas = 0
 
-while True:
-    if arquivos[0] == B:
-        print('pasta', arquivos[0])
-        arquivos.pop(0)
+
+for i in range(len(arquivos)):
+    if arquivos[i] == B:
+        ultimo = i
+        # print('pasta', i)
+        pastas += 1
     else:
         break
+for i in range(ultimo, -1, -1):
+    arquivos.pop(i)
 
-while len(arquivos) > 1:
-    for i in range(len(arquivos)):
-        if arquivos[0]+arquivos[i] == B:
-            print('pasta ', arquivos[0], arquivos[i])
-            arquivos.pop(i)
-            arquivos.pop(0)
-        if len(arquivos) <= 1:
-            break
-
-for i in arquivos:
-    print('pasta', i)
+print(arquivos)
+print(pastas)
