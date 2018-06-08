@@ -8,15 +8,6 @@ e-mail: belbrunosantos@gmail.com
 """
 
 
-def maximo(lista):
-    u"""Encontra o maior número em uma lista."""
-    maximo = lista[0]
-    for i in lista:
-        if maximo < i:
-            maximo = i
-    return maximo
-
-
 def recursiva(n):
     """Faz chamadas recursivas e registra a quantidade."""
     global rodadas
