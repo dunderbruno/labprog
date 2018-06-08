@@ -32,3 +32,16 @@ for i in range(ultimo, -1, -1):
 
 print(arquivos)
 print(pastas)
+
+while len(arquivos) > 1:
+    for i in range(len(arquivos)):
+        if arquivos[0]+arquivos[i] == B:
+            print('pasta ', arquivos[0], arquivos[i])
+            pastas += 1
+            arquivos.pop(i)
+            arquivos.pop(0)
+        if len(arquivos) <= 1:
+            break
+
+for i in arquivos:
+    print('pasta', i)
