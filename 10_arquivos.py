@@ -11,6 +11,15 @@ e-mail: belbrunosantos@gmail.com
 """
 
 
+def dupla(lista):
+    """Encontra dois numeros que somam B."""
+    for i in range(len(lista)):
+        if lista[0]+lista[i] == B:
+            lista.pop(i)
+            lista.pop(0)
+            return True
+
+
 N, B = input().split(' ')
 N, B = int(N), int(B)
 arquivos = input().split(' ')
@@ -19,29 +28,27 @@ arquivos.sort(reverse=True)
 
 pastas = 0
 
-
 for i in range(len(arquivos)):
     if arquivos[i] == B:
         ultimo = i
-        # print('pasta', i)
         pastas += 1
     else:
         break
 for i in range(ultimo, -1, -1):
     arquivos.pop(i)
 
-print(arquivos)
 print(pastas)
 
-while len(arquivos) > 1:
-    for i in range(len(arquivos)):
-        if arquivos[0]+arquivos[i] == B:
-            print('pasta ', arquivos[0], arquivos[i])
-            pastas += 1
-            arquivos.pop(i)
-            arquivos.pop(0)
-        if len(arquivos) <= 1:
-            break
+for i in range((N//2) + 1):
+    if dupla(arquivos):
+        pastas += 1
 
-for i in arquivos:
-    print('pasta', i)
+print(pastas)
+# print(dupla(arquivos))
+# print(dupla(arquivos))
+# print(dupla(arquivos))
+
+# print(pastas)
+print(arquivos)
+# for i in arquivos:
+#     print('pasta', i)
