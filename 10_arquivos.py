@@ -26,7 +26,6 @@ while True:
     else:
         break
 
-
 while len(arquivos) > 1:
     for i in range(len(arquivos)):
         if arquivos[0]+arquivos[i] == B:
@@ -35,3 +34,6 @@ while len(arquivos) > 1:
             arquivos.pop(0)
         if len(arquivos) <= 1:
             break
+
+for i in arquivos:
+    print('pasta', i)
