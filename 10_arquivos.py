@@ -16,3 +16,12 @@ N, B = int(N), int(B)
 arquivos = input().split(' ')
 arquivos = [int(i) for i in arquivos]
 arquivos.sort(reverse=True)
+
+pastas = 0
+
+while True:
+    if arquivos[0] == B:
+        print('pasta', arquivos[0])
+        arquivos.pop(0)
+    else:
+        break
