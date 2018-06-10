@@ -21,12 +21,15 @@ class pais:
         self.bronze = 0
 
     def add_ouro(self):
+        """Acrescenta medalha de ouro."""
         self.ouro += 1
 
     def add_prata(self):
+        """Acrescenta medalha de prata."""
         self.prata += 1
 
     def add_bronze(self):
+        """Acrescenta medalha de bronze."""
         self.bronze += 1
 
 
@@ -74,10 +77,10 @@ def id(lista):
         if ((lista[i].ouro == chave.ouro) and
             (lista[i].prata == chave.prata) and
             (lista[i].bronze == chave.bronze)):
-                while i>=0 and lista[i].id>chave.id:
-                    lista[i+1] = lista[i]
-                    i -= 1
-                lista[i+1] = chave
+            while i>=0 and lista[i].id>chave.id:
+                lista[i+1] = lista[i]
+                i -= 1
+            lista[i+1] = chave
 
 
 N, M = input().split(' ')  # Paises e modalidades
