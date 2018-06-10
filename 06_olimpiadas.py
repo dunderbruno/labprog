@@ -49,11 +49,10 @@ def prata(lista):
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
-        if lista[i].ouro == chave.ouro:
-            while i >= 0 and lista[i].prata < chave.prata:
-                lista[i+1] = lista[i]
-                i -= 1
-            lista[i+1] = chave
+        while i >= 0 and (lista[i].ouro == chave.ouro) and (lista[i].prata < chave.prata):
+            lista[i+1] = lista[i]
+            i -= 1
+        lista[i+1] = chave
 
 
 def bronze(lista):
@@ -61,12 +60,10 @@ def bronze(lista):
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
-        if (lista[i].ouro == chave.ouro):
-            if (lista[i].prata == chave.prata):
-                while i >= 0 and lista[i].bronze < chave.bronze:
-                    lista[i+1] = lista[i]
-                    i -= 1
-                lista[i+1] = chave
+        while i >= 0 and (lista[i].ouro == chave.ouro) and (lista[i].prata == chave.prata) and (lista[i].bronze < chave.bronze):
+            lista[i+1] = lista[i]
+            i -= 1
+        lista[i+1] = chave
 
 
 def id(lista):
@@ -74,13 +71,10 @@ def id(lista):
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
-        if ((lista[i].ouro == chave.ouro) and
-            (lista[i].prata == chave.prata) and
-            (lista[i].bronze == chave.bronze)):
-            while i>=0 and lista[i].id>chave.id:
-                lista[i+1] = lista[i]
-                i -= 1
-            lista[i+1] = chave
+        while i>=0 and (lista[i].ouro == chave.ouro) and (lista[i].prata == chave.prata) and (lista[i].bronze == chave.bronze) and (lista[i].id>chave.id):
+            lista[i+1] = lista[i]
+            i -= 1
+        lista[i+1] = chave
 
 
 N, M = input().split(' ')  # Paises e modalidades
