@@ -10,12 +10,20 @@ e-mail: belbrunosantos@gmail.com
 """
 
 
+class TESTE:
+    """teste."""
+
+    def __init__(self):
+        """contrutor."""
+        print("teste")
+
+
 class pais:
     u"""Classe país."""
 
-    def __init__(self, id):
+    def __init__(self, Id):
         """Construtor."""
-        self.id = id
+        self.id = Id
         self.ouro = 0
         self.prata = 0
         self.bronze = 0
@@ -66,12 +74,12 @@ def bronze(lista):
         lista[i+1] = chave
 
 
-def id(lista):
+def Id(lista):
     """Desempata pelo menor id."""
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
-        while i>=0 and (lista[i].ouro == chave.ouro) and (lista[i].prata == chave.prata) and (lista[i].bronze == chave.bronze) and (lista[i].id>chave.id):
+        while i>=0 and (lista[i].ouro == chave.ouro) and (lista[i].prata == chave.prata) and (lista[i].bronze == chave.bronze) and (lista[i].Id>chave.Id):
             lista[i+1] = lista[i]
             i -= 1
         lista[i+1] = chave
@@ -93,10 +101,10 @@ for i in range(M):
 ouro(paises)
 prata(paises)
 bronze(paises)
-id(paises)
+Id(paises)
 
 saida = ''
 for i in paises:
-    saida += str(i.id)
+    saida += str(i.Id)
     saida += ' '
 print(saida[:-1])
