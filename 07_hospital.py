@@ -27,7 +27,7 @@ def alfabetica(lista):
         chave = lista[j]
         i = j-1
         if int(lista[i][2]) == int(chave[2]):
-            while i >= 0 and lista[i][0][0] > chave[0][0]:
+            while i >= 0 and lista[i][0] > chave[0]:
                 lista[i+1] = lista[i]
                 i -= 1
             lista[i+1] = chave
