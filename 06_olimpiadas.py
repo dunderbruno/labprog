@@ -13,9 +13,9 @@ e-mail: belbrunosantos@gmail.com
 class pais:
     u"""Classe país."""
 
-    def __init__(self, id):
+    def __init__(self, Id):
         """Construtor."""
-        self.id = id
+        self.Id = Id
         self.ouro = 0
         self.prata = 0
         self.bronze = 0
@@ -33,7 +33,7 @@ class pais:
         self.bronze += 1
 
 
-def ouro(lista):
+def sort_ouro(lista):
     """Ordena pelas medalhas de ouro."""
     for j in range(1, len(lista)):
         chave = lista[j]
@@ -44,7 +44,7 @@ def ouro(lista):
         lista[i+1] = chave
 
 
-def prata(lista):
+def desempate_prata(lista):
     """Desempata pelas medalhas de prata."""
     for j in range(1, len(lista)):
         chave = lista[j]
@@ -55,7 +55,7 @@ def prata(lista):
         lista[i+1] = chave
 
 
-def bronze(lista):
+def desempate_bronze(lista):
     """Desempata pelas medalhas de bronze."""
     for j in range(1, len(lista)):
         chave = lista[j]
@@ -66,12 +66,12 @@ def bronze(lista):
         lista[i+1] = chave
 
 
-def id(lista):
-    """Desempata pelo menor id."""
+def desempate_Id(lista):
+    """Desempata pelo menor Id."""
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
-        while i>=0 and (lista[i].ouro == chave.ouro) and (lista[i].prata == chave.prata) and (lista[i].bronze == chave.bronze) and (lista[i].id>chave.id):
+        while i >= 0 and (lista[i].ouro == chave.ouro) and (lista[i].prata == chave.prata) and (lista[i].bronze == chave.bronze) and (lista[i].Id > chave.Id):
             lista[i+1] = lista[i]
             i -= 1
         lista[i+1] = chave
@@ -90,13 +90,13 @@ for i in range(M):
     paises[P-1].add_prata()
     paises[B-1].add_bronze()
 
-ouro(paises)
-prata(paises)
-bronze(paises)
-id(paises)
+sort_ouro(paises)
+desempate_prata(paises)
+desempate_bronze(paises)
+desempate_Id(paises)
 
 saida = ''
 for i in paises:
-    saida += str(i.id)
+    saida += str(i.Id)
     saida += ' '
 print(saida[:-1])
