@@ -11,86 +11,41 @@ e-mail: belbrunosantos@gmail.com
 """
 
 
-def maximo(saldo):
-    u"""Encontra o maior dígito."""
-    maior = saldo[0]
-    indice = 0
-    for i in range(len(saldo)):
-        if saldo[i] > maior:
-            maior = saldo[i]
-            indice = i
-        elif saldo[i] < maior:
-            continue
-    maiores.append(saldo.pop(indice))
-    indices.append(indice)
-
-
-def bubblesort(z):
-    u"""Ordenação."""
-    for i in range(len(z)-1):
-        if z[i] > z[i+1]:
-            z[i], z[i+1] = z[i+1], z[i]
-            for i in range(len(z)-1):
-                if z[i] > z[i+1]:
-                    z[i], z[i+1] = z[i+1], z[i]
-                    for i in range(len(z)-1):
-                        if z[i] > z[i+1]:
-                            z[i], z[i+1] = z[i+1], z[i]
+def varredura(inicio, fim, lista):
+    """Varre a lista."""
+    maior = 0
+    for i in range(B+1):
+        if len(lista[inicio:fim]) >= 1 and int(lista[inicio:fim]) > maior:
+            maior = int(lista[inicio:fim])
+            indice = int(inicio)
+        inicio += 1
+        fim += 1
+    return(indice)
 
 
 RESULTADOS = []
 
 while True:
     try:
-        AB = input("A, B: ")
-        A, B = AB.split(' ')
-        saldo = list(input('Saldo: '))
-        deixar = int(A) - int(B)
-        permuta = [(saldo[i:j])
-                    for i in range(len(saldo)+1)
-                    for j in range(len(saldo) + 1)
-                    if len(saldo[i:j]) == deixar]
-        bubblesort(permuta)
-        possivel = ''
-        for p in permuta[-1]:
-            possivel += p
-        possivel = int(possivel)
+        A, B = input("A, B: ").split(' ')
+        A = int(A)
+        B = int(B)
+        saldo = input('Saldo: ')
 
-        if saldo == saldo[::-1]:
-            saida = ''
-            for s in range(int(A)-int(B)):
-                saida = saida + saldo[s]
-            saida = int(saida)
-            if possivel > saida:
-                saida = possivel
-            RESULTADOS.append(saida)
+        si = 0  # inicio do slice
+        sf = A - B  # fim do slice
+        rodadas = A - B
+        resultado = ''
 
-        elif AB == 'endOfFile':
-            break
+        for i in range(rodadas):
+            resultado += (saldo[varredura(si, sf, saldo)])
+            si = varredura(si, sf, saldo) + 1
+            sf = sf + 1
 
-        else:
-            saldo_backup = saldo[:]
-            maiores, indices, resultado = [], [], []
-            saida = ''
+        RESULTADOS.append(resultado)
 
-            for i in range(int(A) - int(B)):
-                maximo(saldo)
-
-            for i in range(len(maiores)):
-                for j in range(len(saldo_backup)):
-                    if maiores[i] == saldo_backup[j]:
-                        resultado.append(j)
-            bubblesort(resultado)
-
-            for r in resultado:
-                saida = saida + str(saldo_backup[r])
-            saida = int(saida)
-            if possivel > saida:
-                saida = possivel
-            # print(saida)
-            RESULTADOS.append(saida)
     except:
             break
 
-for resultado in RESULTADOS:
-    print(resultado)
+for r in RESULTADOS:
+    print(r)
