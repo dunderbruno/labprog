@@ -17,23 +17,23 @@ def maximo(lista):
     return maximo
 
 
-def fatias(tamanhos, menor):
+def fatias(tamanhos, largura):
     """Em quantas fatias iguais um conjunto pode ser dividido."""
     fatias = 0
     for i in tamanhos:
-        fatias = fatias + (i//menor)
+        fatias = fatias + (i//largura)
     return fatias
 
 
 N = int(input())
 K = int(input())
-tamanhos = input().split(' ')
-tamanhos = [int(i) for i in tamanhos]
-# for t in range(len(tamanhos)):
-#     tamanhos[t] = int(tamanhos[t])
+bolos = input().split(' ')
+bolos = [int(i) for i in bolos]
 
-for i in range(1, maximo(tamanhos)):
-    if fatias(tamanhos, i) == N:
+maior = 0
+
+for i in range(1, maximo(bolos)):
+    if fatias(bolos, i) == N:
         maior = i
 
 print(maior)
