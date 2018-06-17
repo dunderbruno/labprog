@@ -32,3 +32,9 @@ def levenshtein(A, B):
                           )
 
     return(M[m][n])
+
+
+while True:
+    a = input()
+    b = input()
+    print(levenshtein(a, b))
