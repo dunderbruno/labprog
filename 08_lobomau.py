@@ -18,9 +18,11 @@ class pin:
         self.y = y
 
     def __repr__(self):
+        """__repr__."""
         return self.who
 
     def __eq__(self, i):
+        """___eq__."""
         return self.who == i
 
 
@@ -46,41 +48,46 @@ for x in range(altura):
 
 for j in mapa:
     print(j)
-
-# hor = []
-# for i in range(len(mapa)):
-#    for j in range(len(mapa[i])):
-#        if (mapa[i][j] == ('.')) or (mapa[i][j] == ('k')) or (mapa[i][j] == ('v')) and (mapa[i][j-1]=='#' or j == 0):
-#            hor.append([])
-#        if (mapa[i][j] == ('.')) or (mapa[i][j] == ('k')) or (mapa[i][j] == ('v')):
-#            hor[-1].append(mapa[i][j])
+print('\n')
 
 # VARREDURA HORIZONTAL
-# hor = []
-# buscar = ['.','k','v']
-# for i in range(len(mapa)):
-#    for j in range(len(mapa[i])):
-#        if mapa[i][j] in buscar and (mapa[i][j-1]=='#' or j == 0):
-#            hor.append([])
-#        if (mapa[i][j] in buscar):
-#            hor[-1].append(mapa[i][j])
-# # print(hor,len(hor))
-# # for z in hor:
-# #     print(z)
-#
-# # VARREDURA VERTICAL
-# ver = []
-# for i in range(largura):
-#     for j in range(altura):
-#         # print(m[j][i])
-#         if mapa[j][i] in buscar and (mapa[j-1][i]=='#' or j==0):
-#             # print(m[j][i], 'i:',i,'j:',j)
-#             ver.append([])
-#         if mapa[j][i] in buscar:
-#             ver[-1].append(mapa[j][i])
-# # print(ver,len(ver))
-# cruzamento = []
-# for v in ver:
-#     for h in hor:
-#         if h in v:
-#             print(v+h)
+hor = []
+buscar = ['.', 'k', 'v']
+for i in range(len(mapa)):
+    for j in range(len(mapa[i])):
+        if mapa[i][j] in buscar and (mapa[i][j-1] == '#' or j == 0):
+            hor.append([])
+        if (mapa[i][j] in buscar):
+            hor[-1].append(mapa[i][j])
+print(hor, len(hor))
+print('\n')
+# for z in hor:
+#     print(z)
+
+
+# VARREDURA VERTICAL
+ver = []
+for i in range(largura):
+    for j in range(altura):
+        # print(m[j][i])
+        if mapa[j][i] in buscar and (mapa[j-1][i] == '#' or j == 0):
+            # print(m[j][i], 'i:',i,'j:',j)
+            ver.append([])
+        if mapa[j][i] in buscar:
+            ver[-1].append(mapa[j][i])
+print(ver, len(ver))
+print('\n')
+
+cruzamento = []
+for v in ver:
+    for h in hor:
+        for i in v:
+            for j in h:
+                if (i.x, i.y) == (j.x, j.y):
+                    cruzamento.append(v+h)
+
+print(cruzamento)
+print(len((cruzamento)))
+# cruzamento.sort()
+# for i in cruzamento:
+#     print(i)
