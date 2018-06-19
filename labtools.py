@@ -39,11 +39,11 @@ def levenshtein(A, B):
         for y in range(n+1):
             M[x].append((0))
 
-    for i in range(1, m+1):
-        M[i][0] = i-1
+    for i in range(0, m+1):
+        M[i][0] = i
 
-    for j in range(1, n+1):
-        M[0][j] = j-1
+    for j in range(0, n+1):
+        M[0][j] = j
 
     for x in range(1, m+1):
         for y in range(1, n+1):
