@@ -1,3 +1,10 @@
+"""
+Ortografia.
+
+Aluno: Bruno Olimpio dos Santos.
+e-mail: belbrunosantos@gmail.com
+"""
+
 from labtools import levenshtein
 
 N, M = input().split(' ')
