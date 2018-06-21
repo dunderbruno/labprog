@@ -50,7 +50,7 @@ def levenshtein(A, B):
             if A[x-1] == B[y-1]:
                 cost = 0
             else:
-                cost = 2
+                cost = 1
 
             M[x][y] = min(
                           M[x-1][y-1] + cost,
