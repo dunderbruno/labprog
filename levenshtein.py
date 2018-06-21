@@ -23,7 +23,7 @@ def levenshtein(A, B):
             if A[x-1] == B[y-1]:
                 C = 0
             else:
-                C = 2
+                C = 1
 
             M[x][y] = min(
                           M[x-1][y-1] + C,
