@@ -70,10 +70,8 @@ def levenshtein(A, B):
             else:
                 cost = 1
 
-            M[x][y] = min(
-                          M[x-1][y-1] + cost,
-                          M[x-1][y] + 1,
-                          M[x][y-1] + 1,
-                          )
+            M[x][y] = minimo((M[x-1][y-1] + cost,
+                              M[x-1][y] + 1,
+                              M[x][y-1] + 1,))
 
     return(M[m][n])
