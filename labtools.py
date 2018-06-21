@@ -1,6 +1,24 @@
 u"""Biblioteca de funções para Laboratório de Programação."""
 
 
+def maximo(sequencia):
+    u"""Recebe uma sequência e retorna o máximo."""
+    maior = sequencia[0]
+    for i in sequencia:
+        if maior < i:
+            maior = i
+    return maior
+
+
+def minimo(sequencia):
+    u"""Tamanho minimo em que se pode dividir as fatias."""
+    menor = sequencia[0]
+    for i in sequencia:
+        if menor > i:
+            menor = i
+    return menor
+
+
 def fatorial(n):
     u"""Calcula fatorial de um número."""
     return 1 if n < 2 else n*fatorial(n-1)
