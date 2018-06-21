@@ -16,7 +16,7 @@ def minimo(sequencia):
 
 
 def levenshtein(A, B):
-    """Levenshtein Distance."""
+    u"""Distância Levenshtein."""
     m = len(A)
     n = len(B)
     M = []
@@ -60,7 +60,6 @@ N, M = int(N), int(M)
 
 dicionario = [input() for i in range(N)]
 formulario = [input() for i in range(M)]
-
 
 for i in formulario:
     print(refere(i)[:-1])
