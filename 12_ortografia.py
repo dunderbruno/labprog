@@ -15,8 +15,8 @@ def minimo(sequencia):
     return menor
 
 
-def levenshtein(A, B):
-    u"""Distância Levenshtein."""
+def distancia(A, B):
+    u"""Distância de Edição."""
     m = len(A)
     n = len(B)
     M = []
@@ -47,10 +47,10 @@ def levenshtein(A, B):
 
 
 def refere(palavra):
-    """Retorna palavras do dicionario com Levenshtein <= 2."""
+    """Retorna palavras do dicionario com distância de edição <= 2."""
     saida = ''
     for i in dicionario:
-        if levenshtein(palavra, i) <= 2:
+        if distancia(palavra, i) <= 2:
             saida = saida + i + ' '
     return(saida)
 
