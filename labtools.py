@@ -75,3 +75,28 @@ def levenshtein(A, B):
                               M[x][y-1] + 1,))
 
     return(M[m][n])
+
+
+class node:
+    u"""Unidade básica da lista encadeada."""
+
+    def __init__(self, dado):
+        """Inicializa apenas com atributo [dado]."""
+        self.dado = dado
+        self.next = None
+
+    def getDado(self):
+        """Retorna o valor de self.dado."""
+        return self.dado
+
+    def getNext(self):
+        """Retorna o valor de self.next."""
+        return self.next
+
+    def setDado(self, dado):
+        """Altera o valor de self.dado."""
+        self.dado = dado
+
+    def setNext(self, next):
+        u"""Altera ponteiro para o nó seguinte."""
+        self.next = next
