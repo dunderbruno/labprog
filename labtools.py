@@ -2,7 +2,7 @@ u"""Biblioteca de funções para Laboratório de Programação."""
 
 
 def maximo(sequencia):
-    u"""Recebe uma sequência e retorna o máximo."""
+    u"""Recebe uma sequência e retorna o valor máximo."""
     maior = sequencia[0]
     for i in sequencia:
         if maior < i:
@@ -11,7 +11,7 @@ def maximo(sequencia):
 
 
 def minimo(sequencia):
-    u"""Tamanho minimo em que se pode dividir as fatias."""
+    u"""Recebe uma sequência e retorna o valor mínimo."""
     menor = sequencia[0]
     for i in sequencia:
         if menor > i:
