@@ -153,7 +153,7 @@ class tree():
 
     def populate(self, first, last):
         self.raiz = No(last//2, None)
-        for i in range(last//2, first, -1):
+        for i in range((last//2)-1, first-1, -1):
             self.inserir(i)
-        for i in range((last//2) + 1, last):
+        for i in range((last//2) + 1, last+1):
             self.inserir(i)
