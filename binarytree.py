@@ -141,14 +141,14 @@ class tree():
 
     def emOrdem(self, no):
         if no is not None:
-            self.preOrdem(no.getEsq())
+            self.emOrdem(no.getEsq())
             print(no.getChave())
-            self.preOrdem(no.getDir())
+            self.emOrdem(no.getDir())
 
     def posOrdem(self, no):
         if no is not None:
-            self.preOrdem(no.getEsq())
-            self.preOrdem(no.getDir())
+            self.posOrdem(no.getEsq())
+            self.posOrdem(no.getDir())
             print(no.getChave())
 
     def populate(self, first, last):
