@@ -150,3 +150,10 @@ class tree():
             self.preOrdem(no.getEsq())
             self.preOrdem(no.getDir())
             print(no.getChave())
+
+    def populate(self, first, last):
+        self.raiz = No(last//2, None)
+        for i in range(last//2, first, -1):
+            self.inserir(i)
+        for i in range((last//2) + 1, last):
+            self.inserir(i)
