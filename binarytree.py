@@ -132,3 +132,21 @@ class tree():
                 x = pai
                 pai = x.getPai()
             return pai
+
+    def preOrdem(self, no):
+        if no is not None:
+            print(no.getChave())
+            self.preOrdem(no.getEsq())
+            self.preOrdem(no.getDir())
+
+    def emOrdem(self, no):
+        if no is not None:
+            self.preOrdem(no.getEsq())
+            print(no.getChave())
+            self.preOrdem(no.getDir())
+
+    def posOrdem(self, no):
+        if no is not None:
+            self.preOrdem(no.getEsq())
+            self.preOrdem(no.getDir())
+            print(no.getChave())
