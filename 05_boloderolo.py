@@ -33,6 +33,7 @@ bolos = [int(i) for i in bolos]
 maior = 0
 
 for i in range(1, maximo(bolos)):
+    print ('Tamanho: ', i, '---', 'Fatias: ', fatias(bolos, i))
     if fatias(bolos, i) == N:
         maior = i
 
