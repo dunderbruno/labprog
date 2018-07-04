@@ -3,7 +3,7 @@ Juvenal não quer lavar louça.
 
 Aluno: Bruno Olimpio dos Santos
 """
-import time
+
 
 class node:
     u"""Unidade básica da lista encadeada."""
