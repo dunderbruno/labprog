@@ -55,6 +55,39 @@ class Lista:
             self.ultimo = newNode
             self.ultimo.setNext(self.primeiro)
 
+    def remove(self, alvo):  # SAIR DA FILA
+        u"""Retirar um nó do meio."""
+        if self.isEmpty():
+            return ""
+        atual = self.primeiro
+        while atual.getNext() is not None:
+            if atual.getNext().getDado() == alvo:
+                proximo = atual.getNext().getNext()
+                atual.setNext(proximo)
+            atual = atual.getNext()
+
+    def removeFromBegin(self):
+        """Remove primeiro elemento."""
+        firstNodeValue = self.primeiro.getDado()
+        if self.primeiro is self.ultimo:
+            self.primeiro = self.ultimo = None
+        else:
+            self.primeiro = self.primeiro.getNext()
+        return firstNodeValue
+
+    def removeFromEnd(self):
+        """Remove o ultimo elemento."""
+        lastNodeValue = self.ultimo.getDado()
+        if self.primeiro is self.ultimo:
+            self.primeiro = self.ultimo = None
+        else:
+            atual = self.primeiro
+            while atual.getNext() is not self.ultimo:
+                atual = atual.getNext()
+            atual.setNext(None)
+            self.ultimo = atual
+        return lastNodeValue
+
     def setAtual(self, atual):
         """Define Atual."""
         self.atual = atual
