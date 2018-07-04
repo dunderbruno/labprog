@@ -126,4 +126,11 @@ while True:
         festas[contador_festas].append(BARALHO)
         contador_baralhos += 1
 
-print(festas)
+festa = 0
+while True:
+    Atual = DECK.getAtual()
+    for i in festas[festa]:
+        if i.getAtual() == Atual:
+            print('carta ', i.getAtual(), 'de', i.Id, '==', Atual)
+
+        # break
