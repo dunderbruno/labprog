@@ -135,21 +135,23 @@ class tree():
 
     def preOrdem(self, no):
         if no is not None:
-            print(no.getChave())
+            print(no.getChave(), end = " ")
             self.preOrdem(no.getEsq())
             self.preOrdem(no.getDir())
+
+            # for i in a[-1::-1]: print(i, end="")
 
     def emOrdem(self, no):
         if no is not None:
             self.emOrdem(no.getEsq())
-            print(no.getChave())
+            print(no.getChave(), end = " ")
             self.emOrdem(no.getDir())
 
     def posOrdem(self, no):
         if no is not None:
             self.posOrdem(no.getEsq())
             self.posOrdem(no.getDir())
-            print(no.getChave())
+            print(no.getChave(), end = " ")
 
     def populate(self, first, last):
         self.raiz = No(last//2, None)
