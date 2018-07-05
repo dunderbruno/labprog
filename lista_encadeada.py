@@ -23,7 +23,7 @@ class node:
 
     def setNext(self, next):
         u"""Altera ponteiro para o nó seguinte."""
-        self.next = next
+        self.next = node(next)
 
 
 class Lista:
@@ -98,6 +98,7 @@ class Lista:
         return lastNodeValue
 
     def isEmpty(self):
+        u"""Retorna True se a lista está vazia."""
         return self.primeiro is None
 
 
