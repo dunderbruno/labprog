@@ -44,6 +44,19 @@ class Lista:
         u"""Verifica se a lista está vazia."""
         return self.primeiro is None
 
+    def __str__(self):
+        u"""Representação em string."""
+        if self.isEmpty():
+            return ""
+        atual = self.primeiro
+        string = ""
+        while atual is not None:
+            string += str(atual.getDado()) + " "
+            atual = atual.getNext()
+            if atual == self.ultimo:
+                break
+        return string
+
     def insertAtEnd(self, value):
         u"""Insere elemento no início da lista."""
         newNode = node(value)
@@ -93,6 +106,7 @@ class Lista:
         self.atual = atual
 
     def getAtual(self):
+        """Retorna self.atual."""
         return self.atual.getDado()
 
     def s2l(self, string):
@@ -126,11 +140,38 @@ while True:
         festas[contador_festas].append(BARALHO)
         contador_baralhos += 1
 
+# for i in festas:
+#     for j in i:
+#         print(j.primeiro.getDado())
+
 festa = 0
-while True:
+rodadas = 0
+while rodadas <= 1000:
+    if len(vencedores) == F:
+        break
+    elif rodadas == 1000:
+        vencedores.append(0)
+        break
+    # print('passei aqui')
+    rodadas += 1
     Atual = DECK.getAtual()
     for i in festas[festa]:
-        if i.getAtual() == Atual:
+        if i.isEmpty():
+            vencedores.append(i.Id)
+            break
+        elif i.getAtual() == Atual:
             print('carta ', i.getAtual(), 'de', i.Id, '==', Atual)
+            i.setAtual(i.atual.getNext())
+            if i.primeiro.getDado() == Atual:
+                i.removeFromBegin()
+            elif i.ultimo.getDado() == Atual:
+                i.removeFromEnd()
+            else:
+                i.remove(Atual)
+        else:
+            print('carta ', i.getAtual(), '!=', Atual)
+            i.setAtual(i.atual.getNext())
+    DECK.setAtual(DECK.atual.getNext())
 
-        # break
+print(rodadas)
+print(vencedores)
