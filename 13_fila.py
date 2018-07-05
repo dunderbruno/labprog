@@ -9,7 +9,7 @@ e-mail: belbrunosantos@gmail.com
 
 
 class Nodo:
-    u"""Classe Nó"""
+    u"""Classe Nó."""
 
     def __init__(self, conteudo):
         """Construtor."""
