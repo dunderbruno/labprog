@@ -8,7 +8,8 @@ Versão com Árvore Binária
 
 from labtools import maximo
 from labtools import minimo
-from binarytree import *
+from binarytree import No
+from binarytree import tree
 
 
 def fatias(tamanhos, largura):
