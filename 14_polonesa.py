@@ -81,11 +81,23 @@ def polonesa(tokens):
     for i in tokens[::-1]:
         if i not in operadores:
             pilha.insertAtBegin(int(i))
-            print('insert', i)
+            # print('insert', i)
         else:
-            print(i)
+            # print(i)
             a = pilha.removeFromBegin()
             b = pilha.removeFromBegin()
             # print(a, b)
             pilha.insertAtBegin(processa(a, b, i))
     return pilha.primeiro.getDado()
+
+
+saidas = []
+while True:
+    entrada = input()
+    if entrada == '':
+        break
+    else:
+        saidas.append(polonesa(entrada))
+
+for i in saidas:
+    print(i)
