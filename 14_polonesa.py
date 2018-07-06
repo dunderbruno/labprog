@@ -61,3 +61,15 @@ class Lista:
         return self.primeiro is None
 
 
+def processa(a, b, operador):
+    u"""Decide qual operação retornar."""
+    if operador == '+':
+        return int(a) + int(b)
+    elif operador == '-':
+        return int(a) - int(b)
+    elif operador == '*':
+        return int(a) * int(b)
+    elif operador == '/':
+        return int(a) / int(b)
+
+
