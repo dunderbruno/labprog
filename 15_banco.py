@@ -99,17 +99,9 @@ for t in range(T):
                 b = '0'
             else:
                 b = B.primeiro.getDado()
-            print('%s %s' % (str(a), str(b)))
-            # saidas.append('%s %s' % (str(a), str(b)))
+            # print('%s %s' % (str(a), str(b)))
+            saidas.append('%s %s' % (str(a), str(b)))
             # print(A.primeiro.getDado(), ' ', B.primeiro.getDado())
 
 for i in saidas:
     print(i)
-# 3
-# 6
-# f 3
-# I
-# p 5
-# p 7
-# A
-# I
