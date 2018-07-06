@@ -4,8 +4,62 @@ Juvenal Vai ao Banco Brigar.
 Aluno: Bruno Olimpio dos Santos
 """
 
-from lista_encadeada import node
-from lista_encadeada import Lista
+
+class node:
+    u"""Unidade básica da lista encadeada."""
+
+    def __init__(self, dado):
+        """Inicializa apenas com atributo [dado]."""
+        self.dado = dado
+        self.next = None
+
+    def getDado(self):
+        """Retorna o valor de self.dado."""
+        return self.dado
+
+    def getNext(self):
+        """Retorna o valor de self.next."""
+        return self.next
+
+    def setDado(self, dado):
+        """Altera o valor de self.dado."""
+        self.dado = dado
+
+    def setNext(self, next):
+        u"""Altera ponteiro para o nó seguinte."""
+        self.next = next
+
+
+class Lista:
+    """Classe Lista Encadeada."""
+
+    def __init__(self):
+        """Construtor da Lista."""
+        self.primeiro = None
+        self.ultimo = None
+
+    def insertAtEnd(self, value):
+        u"""Insere elemento no início da lista."""
+        newNode = node(value)
+
+        if self.isEmpty():
+            self.primeiro = self.ultimo = newNode
+        else:
+            self.ultimo.setNext(newNode)
+            self.ultimo = newNode
+
+    def removeFromBegin(self):
+        """Remove primeiro elemento."""
+        firstNodeValue = self.primeiro.getDado()
+        if self.primeiro is self.ultimo:
+            self.primeiro = self.ultimo = None
+        else:
+            self.primeiro = self.primeiro.getNext()
+        return firstNodeValue
+
+    def isEmpty(self):
+        u"""Retorna True se a lista está vazia."""
+        return self.primeiro is None
 
 
 saidas = []
