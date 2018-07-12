@@ -79,3 +79,22 @@ class Tree():
         t = Tree(Node(1,"a"))
         """
         self.root = root
+
+    def treeinsert(self, z):
+        u"""Insere um objeto Node na árvore."""
+        y = None
+        x = self.root
+        while x is not None:
+            y = x
+            if z.getKey() < x.getKey():
+                x = x.getLeft()
+            else:
+                x = x.getRight()
+        z.setParent(y)
+        if y is None:
+            self.root = z
+        elif z.getKey() < y.getKey():
+            y.setLeft(z)
+        else:
+            y.setRight(z)
+
