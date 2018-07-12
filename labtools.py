@@ -25,7 +25,7 @@ def fatorial(n):
 
 
 def insertionsort(lista):
-    """Insertion Sort."""
+    """Recebe um conjunto e ordena com Insertion Sort."""
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
@@ -36,7 +36,7 @@ def insertionsort(lista):
 
 
 def reverse(lista):
-    """Insertion Sort - REVERSE."""
+    """Recebe um conjunto e ordena com Insertion Sort - DECRESCENTE."""
     for j in range(1, len(lista)):
         chave = lista[j]
         i = j-1
