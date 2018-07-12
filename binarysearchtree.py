@@ -98,3 +98,20 @@ class Tree():
         else:
             y.setRight(z)
 
+    def preOrderTreeWalk(self, x):
+        if x is not None:
+            print(x.getKey(), end = " ")
+            self.preOrderTreeWalk(x.getLeft())
+            self.preOrderTreeWalk(x.getRight())
+
+    def inOrderTreeWalk(self, x):
+        if x is not None:
+            self.inOrderTreeWalk(x.getLeft())
+            print(x.getKey(), end = " ")
+            self.inOrderTreeWalk(x.getRight())
+
+    def postOrderTreeWalk(self, x):
+        if x is not None:
+            self.postOrderTreeWalk(x.getLeft())
+            self.postOrderTreeWalk(x.getRight())
+            print(x.getKey(), end = " ")
