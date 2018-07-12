@@ -67,3 +67,15 @@ class Node():
     def setParent(self, parent):
         u"""Define nó pai."""
         self.parent = parent
+
+
+class Tree():
+    u"""Árvore de Busca Binária."""
+
+    def __init__(self, root):
+        u"""
+        Inicia a Árvore com um objeto Node como raiz.
+
+        t = Tree(Node(1,"a"))
+        """
+        self.root = root
