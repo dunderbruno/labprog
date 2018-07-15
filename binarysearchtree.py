@@ -80,7 +80,24 @@ class Tree():
         """
         self.root = root
 
-    def treeinsert(self, z):
+    def minimum(self, x):
+        if x is not None:
+            while x.getLeft() is not None:
+                x = i.getLeft()
+            return x
+
+    def succcessor(self, x):
+        if x is not None:
+            if x.getRight() is not None:
+                return self.minimum(x.getRight())
+            else:
+                father = x.getParent()
+                while father is not None and x is father.getRight():
+                    x = father
+                    father = x.getParent()
+                    return father
+
+    def insert(self, z):
         u"""Insere um objeto Node na árvore."""
         y = None
         x = self.root
@@ -97,6 +114,29 @@ class Tree():
             y.setLeft(z)
         else:
             y.setRight(z)
+
+    def delete(self, z):
+        if (z.getLeft() is None) or (z.getRight() is None):
+            y = z
+        else:
+            y = z.succcessor()
+        if y.getLeft() is not None:
+            x = y.getLeft()
+        else:
+            x = y.getRight()
+        if x is not None:
+            x.setParent(y.getParent())
+        if y.getParent() is None:
+            self.root = x
+        else:
+            if y == y.getParent().getLeft():
+                y.getParent().setLeft(x)
+            else:
+                y.getParent().setRight(x)
+
+        if y != z:
+            z.setKey(y.getKey())
+        # print(y.getKey())
 
     def preOrderTreeWalk(self, x):
         if x is not None:
