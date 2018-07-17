@@ -126,7 +126,7 @@ festas = []
 for i in range(F):
     festas.append([])
 contador_festas = 0
-contador_baralhos = 1
+contador_baralhos = 0
 while True:
     baralho = input('baralho: ')
     if baralho == '-1':
