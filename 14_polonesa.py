@@ -100,4 +100,4 @@ while True:
         saidas.append(polonesa(entrada))
 
 for i in saidas:
-    print(i)
+    print(int(i))
