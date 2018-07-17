@@ -109,6 +109,10 @@ class Lista:
         """Retorna self.atual."""
         return self.atual.getDado()
 
+    def getId(self):
+        """Retorna o Id."""
+        return self.Id
+
     def s2l(self, string):
         """Transforma uma string em Lista Encadeada."""
         for i in string.split(' '):
@@ -116,62 +120,49 @@ class Lista:
             # return lista
 
 
-F = int(input('F: '))  # quantas festas Juvenal realizou
-deck = input('Deck: ')  # configuração inicial do deck
-DECK = Lista(None)
-DECK.s2l(deck)
 vencedores = []
-festas = []
-
+F = int(input('F: '))  # quantas festas Juvenal realizou
 for i in range(F):
-    festas.append([])
-contador_festas = 0
-contador_baralhos = 0
-while True:
-    baralho = input('baralho: ')
-    if baralho == '-1':
-        contador_festas += 1
-        contador_baralhos = 1
-        if contador_festas == F:
+    DECK = Lista(None)
+    DECK.s2l(input('Deck: '))
+    festa = []
+    ID = 1  # ID do baralho
+    while True:
+        baralho = input('baralho: ')
+        if baralho == '-1':
+            # print(len(festa))
             break
-    else:
-        BARALHO = Lista(contador_baralhos)
-        BARALHO.s2l(baralho)
-        festas[contador_festas].append(BARALHO)
-        contador_baralhos += 1
-
-# for i in festas:
-#     for j in i:
-#         print(j.primeiro.getDado())
-
-festa = 0
-rodadas = 0
-while rodadas <= 1000:
-    if len(vencedores) == F:
-        break
-    elif rodadas == 1000:
-        vencedores.append(0)
-        break
-    # print('passei aqui')
-    rodadas += 1
-    Atual = DECK.getAtual()
-    for i in festas[festa]:
-        if i.isEmpty():
-            vencedores.append(i.Id)
-            break
-        elif i.getAtual() == Atual:
-            print('carta ', i.getAtual(), 'de', i.Id, '==', Atual)
-            i.setAtual(i.atual.getNext())
-            if i.primeiro.getDado() == Atual:
-                i.removeFromBegin()
-            elif i.ultimo.getDado() == Atual:
-                i.removeFromEnd()
-            else:
-                i.remove(Atual)
         else:
-            print('carta ', i.getAtual(), '!=', Atual)
-            i.setAtual(i.atual.getNext())
-    DECK.setAtual(DECK.atual.getNext())
+            BARALHO = Lista(ID)
+            BARALHO.s2l(baralho)
+            festa.append(BARALHO)
+        ID += 1
 
-print(rodadas)
+    rodadas = 1
+    flag = True
+    while rodadas <= 1000 and flag is True:
+        if rodadas == 1000:
+            vencedores.append(0)
+        rodadas += 1
+        Atual = DECK.getAtual()
+        for i in festa:
+            if i.isEmpty():
+                vencedores.append(i.getId())
+                flag = False
+                break
+            elif i.getAtual() == Atual:
+                # print('carta ', i.getAtual(), 'de', i.Id, '==', Atual)
+                i.setAtual(i.atual.getNext())
+                if i.primeiro.getDado() == Atual:
+                    i.removeFromBegin()
+                elif i.ultimo.getDado() == Atual:
+                    i.removeFromEnd()
+                else:
+                    i.remove(Atual)
+            else:
+                # print('carta ', i.getAtual(), '!=', Atual)
+                i.setAtual(i.atual.getNext())
+        DECK.setAtual(DECK.atual.getNext())
+
+    # print(rodadas)
 print(vencedores)
