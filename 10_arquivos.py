@@ -11,15 +11,22 @@ e-mail: belbrunosantos@gmail.com
 """
 
 
-def reverse(lista):
-    """Insertion Sort - REVERSE."""
-    for j in range(1, len(lista)):
-        chave = lista[j]
-        i = j-1
-        while i >= 0 and lista[i] < chave:
-            lista[i+1] = lista[i]
-            i -= 1
-        lista[i+1] = chave
+def partition(A, p, r):
+    x = A[r]
+    i = p - 1
+    for j in range(p, (r-1)+1):
+        if A[j] > x:  # DECRESCENTE
+            i = i + 1
+            A[i], A[j] = A[j], A[i]
+    A[i+1], A[r] = A[r], A[i+1]
+    return i+1
+
+
+def quicksort(A, p, r):
+    if p < r:
+        q = partition(A, p, r)
+        quicksort(A, p, q-1)
+        quicksort(A, q+1, r)
 
 
 def dupla(lista):
@@ -45,8 +52,7 @@ N, B = input().split(' ')
 N, B = int(N), int(B)
 arquivos = input().split(' ')
 arquivos = [int(i) for i in arquivos]
-# arquivos.sort(reverse=True)
-reverse(arquivos)
+quicksort(arquivos)  # DECRESCENTE
 pastas = 0
 
 # Contando arquivos de tamanho = B
