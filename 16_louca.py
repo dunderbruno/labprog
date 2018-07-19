@@ -121,6 +121,7 @@ class Lista:
 
 
 vencedores = []
+# pdb.set_trace()
 F = int(input('F: '))  # quantas festas Juvenal realizou
 for i in range(F):
     DECK = Lista(None)
@@ -164,5 +165,5 @@ for i in range(F):
                 i.setAtual(i.atual.getNext())
         DECK.setAtual(DECK.atual.getNext())
 
-    # print(rodadas)
-print(vencedores)
+print('Rodadas: ', rodadas)
+print('Ganhador: ', vencedores)
