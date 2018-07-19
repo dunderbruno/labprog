@@ -68,6 +68,9 @@ class Node():
         u"""Define nó pai."""
         self.parent = parent
 
+    def __repr__(self):
+        return self.getData()
+
 
 class Tree():
     u"""Árvore de Busca Binária."""
@@ -83,10 +86,16 @@ class Tree():
     def minimum(self, x):
         if x is not None:
             while x.getLeft() is not None:
-                x = i.getLeft()
-            return x
+                x = x.getLeft()
+            return x.getData()
 
-    def succcessor(self, x):
+    def maximum(self, x):
+        if x is not None:
+            while x.getRight() is not None:
+                x = x.getRight()
+            return x.getData()
+
+    def successor(self, x):
         if x is not None:
             if x.getRight() is not None:
                 return self.minimum(x.getRight())
@@ -96,6 +105,15 @@ class Tree():
                     x = father
                     father = x.getParent()
                     return father
+
+    def antecessor(self, x):
+        if x.getLeft() is not None:
+            return self.maximum(x.getLeft())
+        y = x.getParent()
+        while (y is not None) and (x == y.getLeft()):
+            x = y
+            y = y.getParent()
+        return y
 
     def insert(self, z):
         u"""Insere um objeto Node na árvore."""
@@ -119,7 +137,7 @@ class Tree():
         if (z.getLeft() is None) or (z.getRight() is None):
             y = z
         else:
-            y = z.succcessor()
+            y = z.successor()
         if y.getLeft() is not None:
             x = y.getLeft()
         else:
@@ -147,7 +165,7 @@ class Tree():
     def inOrderTreeWalk(self, x):
         if x is not None:
             self.inOrderTreeWalk(x.getLeft())
-            print(x.getKey(), end = " ")
+            print(x.getData(), end = " ")
             self.inOrderTreeWalk(x.getRight())
 
     def postOrderTreeWalk(self, x):
@@ -155,3 +173,12 @@ class Tree():
             self.postOrderTreeWalk(x.getLeft())
             self.postOrderTreeWalk(x.getRight())
             print(x.getKey(), end = " ")
+
+    def search(self, k):
+        x = self.root
+        while x is not None and k != x.getKey():
+            if k < x.getKey():
+                x = x.getLeft()
+            else:
+                x = x.getRight()
+        return x
