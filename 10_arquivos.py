@@ -52,7 +52,7 @@ N, B = input().split(' ')
 N, B = int(N), int(B)
 arquivos = input().split(' ')
 arquivos = [int(i) for i in arquivos]
-quicksort(arquivos)  # DECRESCENTE
+quicksort(arquivos, 0, len(arquivos)-1)  # DECRESCENTE
 pastas = 0
 
 # Contando arquivos de tamanho = B
