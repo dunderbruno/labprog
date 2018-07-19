@@ -45,6 +45,7 @@ def reverse(lista):
             i -= 1
         lista[i+1] = chave
 
+
 def partition(A, p, r):
     x = A[r]
     i = p - 1
@@ -61,6 +62,7 @@ def quicksort(A, p, r):
         q = partition(A, p, r)
         quicksort(A, p, q-1)
         quicksort(A, q+1, r)
+
 
 def levenshtein(A, B):
     """Levenshtein Distance."""
@@ -91,28 +93,3 @@ def levenshtein(A, B):
                               M[x][y-1] + 1,))
 
     return(M[m][n])
-
-
-class node:
-    u"""Unidade básica da lista encadeada."""
-
-    def __init__(self, dado):
-        """Inicializa apenas com atributo [dado]."""
-        self.dado = dado
-        self.next = None
-
-    def getDado(self):
-        """Retorna o valor de self.dado."""
-        return self.dado
-
-    def getNext(self):
-        """Retorna o valor de self.next."""
-        return self.next
-
-    def setDado(self, dado):
-        """Altera o valor de self.dado."""
-        self.dado = dado
-
-    def setNext(self, next):
-        u"""Altera ponteiro para o nó seguinte."""
-        self.next = next
