@@ -54,7 +54,7 @@ arquivos = input().split(' ')
 arquivos = [int(i) for i in arquivos]
 quicksort(arquivos, 0, len(arquivos)-1)  # DECRESCENTE
 pastas = 0
-
+ultimo = 0
 # Contando arquivos de tamanho = B
 for i in range(len(arquivos)):
     if arquivos[i] == B:
