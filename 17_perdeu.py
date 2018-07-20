@@ -93,7 +93,7 @@ class Tree():
         if x is not None:
             while x.getRight() is not None:
                 x = x.getRight()
-            return x.getData()
+            return x.getKey()
 
     def successor(self, x):
         if x is not None:
@@ -162,19 +162,17 @@ class Tree():
             self.preOrderTreeWalk(x.getLeft())
             self.preOrderTreeWalk(x.getRight())
 
-    def inOrderTreeWalk(self, x, _in):
+    def inOrderTreeWalk(self, x):
         if x is not None:
-            self.inOrderTreeWalk(x.getLeft(), _in)
-            _in += str(x.getKey())
-            _in += ' '
-            self.inOrderTreeWalk(x.getRight(), _in)
+            self.inOrderTreeWalk(x.getLeft())
+            print(x.getKey(), end =' ')
+            self.inOrderTreeWalk(x.getRight())
 
-    def postOrderTreeWalk(self, x, _post):
+    def postOrderTreeWalk(self, x):
         if x is not None:
-            self.postOrderTreeWalk(x.getLeft(), _post)
-            self.postOrderTreeWalk(x.getRight(), _post)
-            _post += str(x.getKey())
-            _post += ' '
+            self.postOrderTreeWalk(x.getLeft())
+            self.postOrderTreeWalk(x.getRight())
+            print(x.getKey(), end =' ')
 
     def search(self, k):
         x = self.root
@@ -185,6 +183,10 @@ class Tree():
                 x = x.getRight()
         return x
 
+    def isEmpty(self):
+        if self.root is None:
+            return True
+
 saidas =[]
 comandos = []
 while True:
@@ -193,39 +195,54 @@ while True:
         break
     else:
         comandos.append(comando)
-
-for i in comandos:
-    caso = 0
-    i = i.split(' ')
-    if i[0].isdigit():
+# print(comandos)
+print('\n')
+caso = 0
+for i in range(len(comandos)):
+    comando = comandos[i].split(' ')
+    # print(i)
+    if comando[0].isdigit():
         caso +=1
-        # saidas.append('Caso %d:' % casos)
+        quantidade = int(comando[0])
         print('Caso %d:' % caso)
+        # print(comandos[i+1:(i+quantidade)+1])
         arvore = Tree()
-    elif i[0] == 'B':
-        alvo = arvore.search(int(i[1]))
-        arvore.delete(alvo)
-        if i[0] == 'A':
-            arvore.insert(Node(int(i[1])))
-    elif i[0] == 'C':
-        alvo = arvore.search(int(i[1]))
-        if alvo.getKey() == arvore.minimum(alvo):
-            saidas.append(0)
-        else:
-            saidas.append(arvore.anteccessor(alvo))
-    elif i[0] == 'PRE':
-        # PRE = ''
-        arvore.preOrderTreeWalk(arvore.root)
-        # saidas.append(PRE)
-    elif i[0] == 'IN':
-        IN = ''
-        arvore.inOrderTreeWalk(arvore.root, IN)
-        saidas.append(IN)
-    elif i[0] == 'POST':
-        POST = ''
-        arvore.postOrderTreeWalk(arvore.root, POST)
-        saidas.append(POST)
+        for j in comandos[i+1:(i+quantidade)+1]:
+            # print(j)
+            if j[0] == 'A':
+                inserir = int(j[2])
+                arvore.insert(Node(inserir))
+            elif j[0] == 'B':
+                alvo = arvore.search(int(j[2]))
+                arvore.delete(alvo)
+            elif j[0] == 'C':
+                if arvore.isEmpty():
+                    print(0)
+                else:
+                    alvo = arvore.search(int(j[2]))
+                    if alvo.getKey() == arvore.minimum(alvo):
+                        print(0)
+                    else:
+                       print(arvore.anteccessor(alvo).getKey())
+            elif j == 'PRE':
+                if arvore.isEmpty():
+                    print(0)
+                else:
+                    arvore.preOrderTreeWalk(arvore.root)
+                    print('\n')
+            elif j == 'IN':
+                if arvore.isEmpty():
+                    print(0)
+                else:
+                    arvore.inOrderTreeWalk(arvore.root)
+                    print('\n')
+            elif j == 'POST':
+                if arvore.isEmpty():
+                    print(0)
+                else:
+                    arvore.postOrderTreeWalk(arvore.root)
+                    print('\n')
 
 
-for j in saidas:
-    print(j)
+# for j in saidas:
+#     print(j)
