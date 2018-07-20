@@ -26,7 +26,7 @@ class Node():
         self.parent = None
 
     def getKey(self):
-        """Retorna chave de acesso."""
+        """Retorna atributo [key]."""
         return self.key
 
     def getData(self):
@@ -66,7 +66,8 @@ class Node():
         self.parent = parent
 
     def __repr__(self):
-        return self.getData()
+        """Define retorno da função [print]"""
+        return self.getKey()
 
 
 class Tree():
@@ -74,28 +75,32 @@ class Tree():
 
     def __init__(self):
         u"""
-        Inicia a Árvore com um objeto Node como raiz.
+        Inicia a Árvore com raiz None.
 
-        t = Tree(Node(1,"a"))
+        t = Tree(Node())
         """
         self.root = None
 
     def setRoot(self, root):
+        """Atribui valor para [self.root]."""
         self.root = root
 
     def minimum(self, x):
+        """Retorna a menor chave a partir de um nó [x]."""
         if x is not None:
             while x.getLeft() is not None:
                 x = x.getLeft()
             return x.getKey()
 
     def maximum(self, x):
+        """Retorna a maior chave a partir de um nó [x]."""
         if x is not None:
             while x.getRight() is not None:
                 x = x.getRight()
             return x.getKey()
 
     def successor(self, x):
+        """Menor key maior que x.key."""
         if x is not None:
             if x.getRight() is not None:
                 return self.minimum(x.getRight())
@@ -107,31 +112,37 @@ class Tree():
                     return father
 
     def antecessor(self, x):
-        if x.getLeft() is not None:
-            return self.maximum(x.getLeft())
-        y = x.getParent()
-        while (y is not None) and (x == y.getLeft()):
-            x = y
-            y = y.getParent()
-        return y
+        """Maior key menor que x.key."""
+        if x is not None:
+            if x.getLeft() is not None:
+                return self.maximum(x.getLeft())
+            else:
+                father = x.getParent()
+                while (father is not None) and (x is father.getLeft()):
+                    x = father
+                    father = x.getParent()
+                    return father
 
     def insert(self, z):
         u"""Insere um objeto Node na árvore."""
-        y = None
-        x = self.root
-        while x is not None:
-            y = x
-            if z.getKey() < x.getKey():
-                x = x.getLeft()
-            else:
-                x = x.getRight()
-        z.setParent(y)
-        if y is None:
-            self.root = z
-        elif z.getKey() < y.getKey():
-            y.setLeft(z)
+        if self.isEmpty():
+            self.setRoot(z)
         else:
-            y.setRight(z)
+            y = None
+            x = self.root
+            while x is not None:
+                y = x
+                if z.getKey() < x.getKey():
+                    x = x.getLeft()
+                else:
+                    x = x.getRight()
+            z.setParent(y)
+            if y is None:
+                self.root = z
+            elif z.getKey() < y.getKey():
+                y.setLeft(z)
+            else:
+                y.setRight(z)
 
     def delete(self, z):
         if (z.getLeft() is None) or (z.getRight() is None):
@@ -195,20 +206,19 @@ while True:
         break
     else:
         comandos.append(comando)
-# print(comandos)
+
 print('\n')
 caso = 0
 for i in range(len(comandos)):
     comando = comandos[i].split(' ')
-    # print(i)
     if comando[0].isdigit():
         caso +=1
         quantidade = int(comando[0])
         print('Caso %d:' % caso)
-        # print(comandos[i+1:(i+quantidade)+1])
         arvore = Tree()
+
+
         for j in comandos[i+1:(i+quantidade)+1]:
-            # print(j)
             if j[0] == 'A':
                 inserir = int(j[2])
                 arvore.insert(Node(inserir))
@@ -218,12 +228,11 @@ for i in range(len(comandos)):
             elif j[0] == 'C':
                 if arvore.isEmpty():
                     print(0)
+                elif alvo.getKey() == arvore.minimum(alvo):
+                    print(0)
                 else:
                     alvo = arvore.search(int(j[2]))
-                    if alvo.getKey() == arvore.minimum(alvo):
-                        print(0)
-                    else:
-                       print(arvore.anteccessor(alvo).getKey())
+                    print(arvore.antecessor(alvo))
             elif j == 'PRE':
                 if arvore.isEmpty():
                     print(0)
@@ -242,7 +251,3 @@ for i in range(len(comandos)):
                 else:
                     arvore.postOrderTreeWalk(arvore.root)
                     print('\n')
-
-
-# for j in saidas:
-#     print(j)
