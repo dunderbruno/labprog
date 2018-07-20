@@ -185,17 +185,28 @@ class Tree():
                 x = x.getRight()
         return x
 
-
 saidas =[]
-arvore = Tree()
-comandos = int(input('N: '))
-for i in range(comandos):
-    i = input('>>> ').split(' ')
-    if i[0] == 'A':
-        arvore.insert(Node(int(i[1])))
+comandos = []
+while True:
+    comando = input()
+    if comando == '':
+        break
+    else:
+        comandos.append(comando)
+
+for i in comandos:
+    caso = 0
+    i = i.split(' ')
+    if i[0].isdigit():
+        caso +=1
+        # saidas.append('Caso %d:' % casos)
+        print('Caso %d:' % caso)
+        arvore = Tree()
     elif i[0] == 'B':
         alvo = arvore.search(int(i[1]))
         arvore.delete(alvo)
+        if i[0] == 'A':
+            arvore.insert(Node(int(i[1])))
     elif i[0] == 'C':
         alvo = arvore.search(int(i[1]))
         if alvo.getKey() == arvore.minimum(alvo):
@@ -215,4 +226,6 @@ for i in range(comandos):
         arvore.postOrderTreeWalk(arvore.root, POST)
         saidas.append(POST)
 
-print(saidas)
+
+for j in saidas:
+    print(j)
