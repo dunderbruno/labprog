@@ -156,12 +156,11 @@ class Tree():
             z.setKey(y.getKey())
         # print(y.getKey())
 
-    def preOrderTreeWalk(self, x, _pre):
+    def preOrderTreeWalk(self, x):
         if x is not None:
-            _pre += str(x.getKey())
-            _pre += ' '
-            self.preOrderTreeWalk(x.getLeft(), _pre)
-            self.preOrderTreeWalk(x.getRight(), _pre)
+            print(x.getKey(), end =' ')
+            self.preOrderTreeWalk(x.getLeft())
+            self.preOrderTreeWalk(x.getRight())
 
     def inOrderTreeWalk(self, x, _in):
         if x is not None:
@@ -199,19 +198,21 @@ for i in range(comandos):
         arvore.delete(alvo)
     elif i[0] == 'C':
         alvo = arvore.search(int(i[1]))
-        if alvo.getKey() == arvore.minimum():
+        if alvo.getKey() == arvore.minimum(alvo):
             saidas.append(0)
         else:
             saidas.append(arvore.anteccessor(alvo))
     elif i[0] == 'PRE':
-        PRE = ''
-        x.preOrderTreeWalk(x.root, PRE)
-        saidas.append(PRE)
+        # PRE = ''
+        arvore.preOrderTreeWalk(arvore.root)
+        # saidas.append(PRE)
     elif i[0] == 'IN':
         IN = ''
-        x.inOrderTreeWalk(x.root, IN)
+        arvore.inOrderTreeWalk(arvore.root, IN)
         saidas.append(IN)
     elif i[0] == 'POST':
         POST = ''
-        x.postOrderTreeWalk(x.root, POST)
+        arvore.postOrderTreeWalk(arvore.root, POST)
         saidas.append(POST)
+
+print(saidas)
