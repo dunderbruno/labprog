@@ -105,7 +105,7 @@ def dijikstra(grafo, origem, destino):
         v = Q.min(v.distancia)
         Q.remove(v)
         for u in v.vizinhos:  # para cada vizinho u de v faça:
-            novo = v.distancia + v.arestas[u]
+            novo = v.distancia + v.arestas[u.key]
             if novo < u.distancia:
             # "u" é o vizinho de "v". Na primeira rodada é infinito
                 u.distancia = novo
