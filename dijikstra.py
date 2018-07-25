@@ -2,14 +2,19 @@
 
 import math
 
+
 class vertice():
+    u"""Classe Vértice."""
+
     def __init__(self, key):
+        """Construtor."""
         self.key = key
-        self.vizinhos = {} # [vertice:distancia]
         self.distancia = 0
-        self.arestas = {}
+        self.vizinhos = []
+        self.arestas = {}  # [vertice:distancia]
 
     def addVizinho(vertice):
+        """Adiciona um vizinho."""
         self.vizinhos.append(vertice)
 
 class Lista:
@@ -99,13 +104,12 @@ def dijikstra(grafo, origem, destino):
     while Q.isEmpty() is not False:
         v = Q.min(v.distancia)
         Q.remove(v)
-        for u in v:  # para cada vizinho u de v faça:
-            novo = v.distancia + aresta[u, v]
+        for u in v.vizinhos:  # para cada vizinho u de v faça:
+            novo = v.distancia + v.arestas[u]
             if novo < u.distancia:
             # "u" é o vizinho de "v". Na primeira rodada é infinito
                 u.distancia = novo
     return destino.distancia
-    # retorne d[destino]
 
 
 a = vertice(1)
