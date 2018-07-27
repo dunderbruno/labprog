@@ -1,4 +1,4 @@
-"""Algoritmo de Dijikstra."""
+"""Dijkstra's algorithm."""
 
 import math
 
@@ -31,7 +31,7 @@ class vertex():
 
 
 def dijkstra(graph, source, destino):
-    """Dijikstra Algorithm."""
+    """Dijkstra's Algorithm."""
     Q = []
     for v in graph:
         v.distance = math.inf
