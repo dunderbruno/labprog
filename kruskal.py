@@ -1,11 +1,18 @@
+class edge():
+    def __init__(self, a, b, w):
+        self.a = a
+        self.b = b
+        self.w = w
+
+    def __lt__(self, other):
+        return self.w < other.w
+
+
 def findset(vertex):
     """Receive a vertex and return the set it belongs."""
     for i in SUPERSET:
         if vertex in i:
             return i
-
-def union(u, v):
-    pass
 
 def kruskal(G, w):
     A = []
@@ -15,6 +22,13 @@ def kruskal(G, w):
     w.sort(key=peso)
     for e in w:
         if findset(e[0]) != findset(e[1]):
-            A += e
-            union(u, v)
-    return A
+            A.append([e])
+            w[0].extend(findset(e[1]))
+            w[0].remove(e[1])
+    return SUPERSET
+
+
+
+    # a = [['a'],['b'],['c']]
+    # a[0].extend(a[2])
+    # a.remove(a[2])
