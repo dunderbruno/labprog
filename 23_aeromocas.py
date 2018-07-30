@@ -49,3 +49,19 @@ def dijkstra(graph, source, destino):
             if new < u.distance:  # u é o vizinho de v. Na 1 rodada é infinito
                 u.distance = new
     return destino.distance
+
+
+N, M = input("N, M: ").split(" ")
+N, M = int(N), int(M)
+rotas = [input("Rota %d: " % (i+1)).split(" ") for i in range(M)]
+cidades = [vertex(n) for n in range(N)]
+
+
+for r in rotas:
+    cidades[int(r[0])].addNeighbor(cidades[int(r[1])])
+    cidades[int(r[1])].addNeighbor(cidades[int(r[0])])
+    cidades[int(r[0])].addEdge(cidades[int(r[1])], int(r[2]))
+    cidades[int(r[1])].addEdge(cidades[int(r[0])], int(r[2]))
+
+for c in cidades:
+    print(c.id, c.neighbors)
