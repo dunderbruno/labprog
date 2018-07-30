@@ -44,5 +44,6 @@ def prim(graph, root):
             if (v in Q) and (u.edges[v.id] < v.key):
                 v.pi = u
                 v.key = u.edges[v.id]
-        A.append((v.id, v.pi))
+    for i in graph:
+        A.append((i, i.pi))
     return(A)
