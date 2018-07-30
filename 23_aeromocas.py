@@ -11,11 +11,22 @@ class vertex():
     """Class Vertex."""
 
     def __init__(self, id):
-        """Construtor."""
+        """
+        Classe vertex é iniciada com argumento id.
+        >>> x = vertex(8)
+
+        Arguments:
+            id - identifier of object.
+
+        Atributes:
+            distance  - to be used by dijkstra function
+            neighbors - list to add pointers to neighbors
+            edges     - dictionary: [vertex:weight]
+        """
         self.id = str(id)
         self.distance = 0
         self.neighbors = []
-        self.edges = {}  # [vertex:distance]
+        self.edges = {}
 
     def __lt__(self, other):
         """Comparison rule to < operator."""
@@ -51,11 +62,12 @@ def dijkstra(graph, source, destino):
     return destino.distance
 
 
-N, M = input("N, M: ").split(" ")
+N, M = input().split(" ")
+# N, M = input("N, M: ").split(" ")
 N, M = int(N), int(M)
-rotas = [input("Rota %d: " % (i+1)).split(" ") for i in range(M)]
+rotas = [input().split(" ") for i in range(M)]
+# rotas = [input("Rota %d: " % (i+1)).split(" ") for i in range(M)]
 cidades = [vertex(n) for n in range(N)]
-
 
 for r in rotas:
     cidades[int(r[0])].addNeighbor(cidades[int(r[1])])
@@ -63,5 +75,15 @@ for r in rotas:
     cidades[int(r[0])].addEdge(cidades[int(r[1])], int(r[2]))
     cidades[int(r[1])].addEdge(cidades[int(r[0])], int(r[2]))
 
-for c in cidades:
-    print(c.id, c.neighbors)
+maximos = []
+for i in range(len(cidades)):
+    maximo = 0
+    for j in range(len(cidades)):
+        if i == j:
+            continue
+        atual = dijkstra(cidades, cidades[i], cidades[j])
+        if atual > maximo:
+            maximo = atual
+    maximos.append(maximo)
+
+print(min(maximos))
