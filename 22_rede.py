@@ -1,5 +1,5 @@
 u"""
-Rede ótica do Cacique
+Rede ótica do Cacique.
 
 Aluno: Bruno Olimpio dos Santos
 """
@@ -34,6 +34,7 @@ class vertex():
         """Destination vertex and weight."""
         self.edges[vertex.id] = weight
 
+
 def prim(graph, root):
     """Prim's Algorithm."""
     A = []
@@ -54,22 +55,32 @@ def prim(graph, root):
     return(A)
 
 
-N, M = input().split(" ")
-N, M = int(N), int(M)
-rotas = [input().split(" ") for i in range(M)]
-cidades = [vertex(n) for n in range(1, N+1)]
+saida = []
+teste = 0
+while True:
+    N, M = input().split(" ")
+    N, M = int(N), int(M)
+    if N == 0:
+        break
+    else:
+        teste += 1
+        saida.append("Teste %d:" % teste)
+        rotas = [input().split(" ") for i in range(M)]
+        cidades = [vertex(n) for n in range(1, N+1)]
 
+        for r in rotas:
+            cidades[int(r[0])-1].addNeighbor(cidades[int(r[1])-1])
+            cidades[int(r[1])-1].addNeighbor(cidades[int(r[0])-1])
+            cidades[int(r[0])-1].addEdge(cidades[int(r[1])-1], int(r[2]))
+            cidades[int(r[1])-1].addEdge(cidades[int(r[0])-1], int(r[2]))
 
-for r in rotas:
-    cidades[int(r[0])-1].addNeighbor(cidades[int(r[1])-1])
-    cidades[int(r[1])-1].addNeighbor(cidades[int(r[0])-1])
-    cidades[int(r[0])-1].addEdge(cidades[int(r[1])-1], int(r[2]))
-    cidades[int(r[1])-1].addEdge(cidades[int(r[0])-1], int(r[2]))
+        rede = prim(cidades, cidades[0])
+        for i in rede:
+            i.sort()
+        rede.sort()
+        for j in rede:
+            saida.append("%s %s" % (j[0], j[1]))
+        saida.append("\n")
 
-rede = prim(cidades, cidades[0])
-for i in rede:
-    i.sort()
-rede.sort()
-for j in rede:
-    print(j[0], j[1])
-print('\n')
+for x in saida:
+    print(x)
