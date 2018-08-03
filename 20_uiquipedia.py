@@ -1,4 +1,8 @@
-"""Uiquipedia."""
+"""
+Uiquipedia.
+
+Aluno: Bruno Olimpio dos Santos
+"""
 
 import math
 
@@ -64,11 +68,26 @@ diretas = [input().split(" ") for i in range(N)]
 void = input()
 origem, destino = input().split(" ")
 
+universo = []
 alfabetica = []
+start_under = []
+start_alpha = []
+
 for i in diretas:
-    alfabetica.extend(i)
-alfabetica = list(set(alfabetica))
-alfabetica.sort()
+    universo.extend(i)
+universo = list(set(universo))
+
+for i in universo:
+    if i[0] == "_":
+        start_under.append(i)
+    else:
+        start_alpha.append(i)
+
+start_under.sort()
+start_alpha.sort()
+
+alfabetica.extend(start_under)
+alfabetica.extend(start_alpha)
 
 referencias = {}
 
@@ -88,8 +107,5 @@ for i in diretas:
     referencias[i[0]].addEdge(referencias[i[1]], 1)
     referencias[i[1]].addNeighbor(referencias[i[0]])
     referencias[i[1]].addEdge(referencias[i[0]], 1)
-
-# for r in referencias.values():
-#     print(r, r.neighbors)
 
 print(dijkstra(referencias.values(), referencias[origem], referencias[destino]))
