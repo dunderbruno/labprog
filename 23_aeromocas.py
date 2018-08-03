@@ -43,7 +43,11 @@ class vertex():
 
     def addEdge(self, vertex, weight):
         """Destination vertex and weight."""
-        self.edges[vertex.id] = weight
+        try:
+            if weight < self.edges[vertex.id]:
+                self.edges[vertex.id] = weight
+        except:
+            self.edges[vertex.id] = weight
 
 
 def dijkstra(graph, source, destino):
