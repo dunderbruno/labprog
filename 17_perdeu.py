@@ -109,7 +109,7 @@ class Tree():
                 while father is not None and x is father.getRight():
                     x = father
                     father = x.getParent()
-                    return father
+        return father
 
     def antecessor(self, x):
         """Maior key menor que x.key."""
@@ -121,7 +121,7 @@ class Tree():
                 while (father is not None) and (x is father.getLeft()):
                     x = father
                     father = x.getParent()
-                    return father
+        return father
 
     def insert(self, z):
         u"""Insere um objeto Node na árvore."""
@@ -226,9 +226,10 @@ for i in range(len(comandos)):
                 alvo = arvore.search(int(j[2]))
                 arvore.delete(alvo)
             elif j[0] == 'C':
+                alvo = arvore.search(int(j[2]))
                 if arvore.isEmpty():
                     print(0)
-                elif alvo.getKey() == arvore.minimum(alvo):
+                if alvo.getKey() == arvore.minimum(alvo):
                     print(0)
                 else:
                     alvo = arvore.search(int(j[2]))
