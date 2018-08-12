@@ -75,12 +75,15 @@ class Node():
 class Tree():
     u"""Árvore de Busca Binária."""
 
-    def __init__(self, root):
+    def __init__(self):
         u"""
         Inicia a Árvore com um objeto Node como raiz.
 
         t = Tree(Node(1,"a"))
         """
+        self.root = None
+
+    def setRoot(self, root):
         self.root = root
 
     def minimum(self, x):
@@ -113,7 +116,7 @@ class Tree():
         while (y is not None) and (x == y.getLeft()):
             x = y
             y = y.getParent()
-        return y
+            return y
 
     def insert(self, z):
         u"""Insere um objeto Node na árvore."""

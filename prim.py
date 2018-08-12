@@ -1,3 +1,5 @@
+"""Prim's Algorithm."""
+
 import math
 
 

@@ -5,7 +5,7 @@ class edge():
         self.w = w
 
     def __lt__(self, other):
-        return self.w < other.w
+        return self.w > other.w
 
 
 def findset(vertex):
@@ -14,12 +14,13 @@ def findset(vertex):
         if vertex in i:
             return i
 
+
 def kruskal(G, w):
     A = []
     SUPERSET = []
     for v in G:
         SUPERSET.append([v])
-    w.sort(key=peso)
+    w.sort()
     for e in w:
         if findset(e[0]) != findset(e[1]):
             A.append([e])
