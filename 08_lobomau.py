@@ -4,7 +4,6 @@ u"""
 Lobo Mau.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

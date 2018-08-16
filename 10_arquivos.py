@@ -7,7 +7,6 @@ Quantidade mínima possível de pastas
 de tamanho B para armazenar N arquivos
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

@@ -4,7 +4,6 @@ u"""
 Verifica se uma matriz forma um quadrado mágico.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

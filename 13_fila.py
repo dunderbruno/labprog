@@ -4,7 +4,6 @@ u"""
 Ninguém aguenta mais filas.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

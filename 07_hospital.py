@@ -6,7 +6,6 @@ Hospital Cura Se Puder Pagar.
 Ordena lista de espera em função de multiplos fatores.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

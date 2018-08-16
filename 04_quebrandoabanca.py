@@ -7,7 +7,6 @@ Recebe um número e a quantidade de digitos a ser retirada.
 Retorna o maior inteiro possível.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

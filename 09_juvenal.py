@@ -4,7 +4,6 @@ u"""
 Juvenal Não Tem o Que Fazer.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

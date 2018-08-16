@@ -4,7 +4,6 @@ u"""
 Descobre a menor soma de fatoriais que formam um número.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 

@@ -4,7 +4,6 @@ u"""
 Bolo de Rolo.
 
 Aluno: Bruno Olimpio dos Santos.
-e-mail: belbrunosantos@gmail.com
 """
 
 
