@@ -11,7 +11,7 @@ Aluno: Bruno Olimpio dos Santos.
 
 
 def varredura(inicio, fim, lista):
-    """Varre a lista."""
+    """Varre a lista em busca do maior valor."""
     maior = 0
     for i in range(B+1):
         if len(lista[inicio:fim]) >= 1 and int(lista[inicio:fim]) > maior:

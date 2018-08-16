@@ -100,14 +100,3 @@ class Lista:
     def isEmpty(self):
         u"""Retorna True se a lista está vazia."""
         return self.primeiro is None
-
-
-# class encadeada:
-#     """Lista Encadeada."""
-#
-#     def __init__(self):
-#         u"""Ponteiros para primeiro e ultimo nós."""
-#         self.first = None
-#         self.last = None
-#
-#     def empty()

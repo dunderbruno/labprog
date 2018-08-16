@@ -139,8 +139,6 @@ class tree():
             self.preOrdem(no.getEsq())
             self.preOrdem(no.getDir())
 
-            # for i in a[-1::-1]: print(i, end="")
-
     def emOrdem(self, no):
         if no is not None:
             self.emOrdem(no.getEsq())
