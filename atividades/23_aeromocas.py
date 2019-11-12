@@ -1,5 +1,5 @@
 u"""
-O Sindicato das Aeroçoças.
+O Sindicato das Aeromoças.
 
 Aluno: Bruno Olimpio dos Santos
 """
