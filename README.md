@@ -1,16 +1,24 @@
 Atividades da disciplina Laboratório de Programação - BSI - UFRPE
 
 ## labprog.py
-   Biblioteca de funções
+   Biblioteca de funções para uso nas atividades
+   
+   #### Aritmética
    * Máximo
    * Mínimo
    * Fatorial
+   
+   #### Ordenação
    * Insertion Sort
    * Quick Sort
+   
+   #### Strings
    * Levenshtein
 
-## Estruturas de Dados
+## Listas
    * lista_encadeada.py
+   
+## Árvores   
    * binarysearchtree.py
 
 ## Grafos
